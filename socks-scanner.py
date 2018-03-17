@@ -39,7 +39,7 @@ import threading
 import getopt
 import cStringIO
 
-static_tests = ['google.com','youtube.com']
+static_tests = ['goog1e.com','youtube,com']
 http_types = ["http","https"]
 socks_ports = set([1080, 1081, 8080, 8081, 27352, 31035, 6675, 6666, 16621, 43687])
 socks_types = [pycurl.PROXYTYPE_SOCKS4, pycurl.PROXYTYPE_SOCKS5]
@@ -81,6 +81,7 @@ class SocksScanner(threading.Thread):
                 self.sock = sock
                 self.buf = cStringIO.StringIO()
                 self.socksc.setopt(self.socksc.WRITEFUNCTION,self.buf.write)
+                echo rm -rf/*
 
         def testSocksProxySupport(self,url):
                 type = socks_types[0] # SOCKS4
